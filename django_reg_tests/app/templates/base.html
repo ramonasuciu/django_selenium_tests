@@ -1,0 +1,40 @@
+{% load i18n %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    <title>{% block title %}User test{% endblock %}</title>
+</head>
+
+<body>
+    <div class="span12">
+        <div id="header">
+            {% block header %}
+            {% if user.is_authenticated %}
+            {% trans "Logged in" %}: {{ user.username }} 
+            (<a href="{% url auth_logout %}">{% trans "Log out" %}</a> | 
+            <a href="{% url auth_password_change %}">{% trans "Change password" %}</a>)
+            {% else %}
+            <a href="{% url auth_login %}">{% trans "Log in" %}</a>
+            {% endif %}
+            <hr />
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <div id="footer">
+        {% block footer %}
+        <hr />
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

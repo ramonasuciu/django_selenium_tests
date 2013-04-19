@@ -1,0 +1,4 @@
+Django==1.4.3
+django-registration==0.8
+selenium==2.31.0
+django-nose==1.1

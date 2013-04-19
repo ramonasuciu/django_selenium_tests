@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<form method="post" action=".">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <input type="submit" value="{% trans 'Submit' %}" />
+</form>
+<script type="text/javascript" src="{% static "js/password_strength_plugin.js" %}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#id_password1').passStrength({
+            baseStyle: "help-inline",
+            userid: "#id_username",
+            messageloc: 1,
+            controlGroup: "#group_password1",
+        });
+    });
+</script>
+{% endblock %}
