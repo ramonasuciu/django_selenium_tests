@@ -17,8 +17,6 @@ account_message_locator = (By.ID, "content")
 password_js = (By.CSS_SELECTOR, ".help-inline")
 welcome_message = (By.CSS_SELECTOR, "h1")
 
-base_url = '/accounts'
-
 
 class Register(unittest.TestCase):
 
